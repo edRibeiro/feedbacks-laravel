@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,12 @@ class FeedbackFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'owner_id' => User::factory(),
+            'recipient_id' => User::factory(),
+            'finalfeedback' => fake()->paragraph(),
+            'improvementpoints' => fake()->paragraph(),
+            'maintainpoints' => fake()->paragraph(),
+            'suggestions' => fake()->paragraph(),
         ];
     }
 }
